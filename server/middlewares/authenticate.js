@@ -20,8 +20,8 @@ export default (req, res, next) => {
       else {
         console.log('no error');
         User.query({
-          where: { user_id: decoded.id },
-          select: ['username','user_id']
+          where: { operatorID: decoded.id },
+          select: ['operatorID','operatorName']
         }).fetch().then(user => {
           if (!user) {
             res.status(404).json({ error: 'No such user' });

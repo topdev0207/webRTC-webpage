@@ -12,7 +12,7 @@ class NewEventPage extends React.Component {
 	var tokenDecoded = jwt.decode(token);
 	console.log(tokenDecoded.type);
 	if (tokenDecoded.type == "psap") {
-		return <h1> PSAP</h1>;
+		return <div> <EventForm /></div>;
 	} else if (tokenDecoded.type == "fire") {
 		return <h1> Fire</h1>;
 	}

@@ -22,7 +22,10 @@ class EventForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.createEvent(this.state);
+    this.props.createEvent(this.state).then(
+        (res) => console.log("ca marche"),
+        (err) => console.log("ca marche pas")
+      );
   }
 
   render() {

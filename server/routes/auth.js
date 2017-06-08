@@ -9,10 +9,10 @@ let router = express.Router();
 var mysql = require('mysql')
 
 var connection = mysql.createConnection({
-    host     : 'XXXXXX',
-    user     : 'XXXXXXX',
-    password : 'XXXXXX',
-    database : 'XXXXXXX'
+    host     : 'webrtcdb.c3aksp5oc3wy.us-west-2.rds.amazonaws.com',
+    user     : 'epiacenza',
+    password : 'ep11959857',
+    database : 'webRTC911'
   });
 
 
@@ -22,15 +22,15 @@ router.post('/', (req, res) => {
     if (err) throw err;
     console.log('conect');
   });*/
-  var sql="select * from 911_operator_login where username = ? and password = sha2(?,256)";
+  var sql="select * from operatorCredential where operatorName = ? and password = sha2(?,256)";
   connection.query(sql, [identifier, password], function(err, rows, fields) {
     if (!rows.length){
       res.status(401).json({ errors: { form: 'Invalid Credentials' } });
     }else{
       const token = jwt.sign({
-      id: rows[0].user_id,
-      username: rows[0].username,
-      type: rows[0].pouet
+      id: rows[0].operatorID,
+      username: rows[0].operatorName,
+      type: rows[0].operatorType
       }, config.jwtSecret);
       res.json({ token });
     }

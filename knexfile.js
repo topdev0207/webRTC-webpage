@@ -5,10 +5,10 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host:     'XXXXXX',
-      user:     'XXXXXX',
-      password: 'XXXXXX',
-      database: 'XXXXXX'
+      host:     'webrtcdb.c3aksp5oc3wy.us-west-2.rds.amazonaws.com',
+      user:     'epiacenza',
+      password: 'ep11959857',
+      database: 'webRTC911'
     }
   }
 };

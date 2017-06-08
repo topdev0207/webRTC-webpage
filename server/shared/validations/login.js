@@ -1,14 +1,14 @@
-import Validator from 'Validator';
+import validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 
 function validateInput(data) {
   let errors = {};
 
-  if (Validator.isNull(data.identifier)) {
+  if (validator.isNull(data.identifier)) {
     errors.identifier = 'This field is required';
   };
 
-  if (Validator.isNull(data.password)) {
+  if (validator.isNull(data.password)) {
     errors.password = 'This field is required';
   };
 
